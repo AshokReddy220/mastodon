@@ -23,10 +23,10 @@ spec:
       # ensure we run on the same node as the other rails components; only
       # required when using PVCs that are ReadWriteOnce
       {{- if or (eq "ReadWriteOnce" .Values.mastodon.persistence.assets.accessMode) (eq "ReadWriteOnce" .Values.mastodon.persistence.system.accessMode) }}
-      affinity:
-        podAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
+#       affinity:
+#         podAffinity:
+#           requiredDuringSchedulingIgnoredDuringExecution:
+#           - labelSelector:
 #               matchExpressions:
 #                 - key: app.kubernetes.io/part-of
 #                   operator: In
